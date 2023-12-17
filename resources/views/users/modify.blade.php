@@ -51,7 +51,8 @@
                         <tbody>
                             @foreach ($user_files as $uf)
                                 <tr>
-                                    <td><a href="{{ URL::to('/storage/uploads/'.$uf->file) }}" target="_blank">{{ $uf->file }}</a></td>
+                                    <td><a href="{{ URL::to('/storage/uploads/' . $uf->file) }}"
+                                            target="_blank">{{ $uf->file }}</a></td>
                                     <td>{{ $uf->created_at }}</td>
                                 </tr>
                             @endforeach
@@ -71,16 +72,6 @@
     var url = '';
     var type = '';
     var message = '';
-
-    @if (Request::is('users/create'))
-        url = "{{ route('users.store') }}";
-        type = "POST";
-        message = 'Create Success!';
-    @else
-        url = "{{ route('users.update', Request::route('user')) }}";
-        type = "PATCH";
-        message = 'Update Success!';
-    @endif
 
     $('.form-control').on('keypress', function(e) {
         if (e.which == 13) {
@@ -106,12 +97,20 @@
         form.append('birth', $('#birth').val());
         form.append('username', $('#username').val());
 
+        @if (Request::is('users/create'))
+            url = "{{ route('users.store') }}";
+            message = 'Create Success!';
+        @else
+            url = "{{ route('users.update', Request::route('user')) }}";
+            message = 'Update Success!';
+            form.append('_method', 'PUT');
+        @endif
+
         $.ajax({
-            type: type,
+            type: 'POST',
             data: form,
             processData: false,
             contentType: false,
-            cache: false,
             enctype: 'multipart/form-data',
             url: url,
             success: function(data) {

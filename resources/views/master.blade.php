@@ -7,10 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Users - Practical Exam Code</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <div id="m-message mt-2"></div>
+        <div id="m-message" class="mt-2"></div>
         <div id="view" class="mt-2"></div>
     </div>
     

@@ -8,9 +8,9 @@
         <td>{{ $user->created_at }}</td>
         <td>
             <a href="#" class="btn btn-warning btn-edit-user"
-                data-url="{{ route('users.edit', $user->id) }}">Edit</a>
+                data-url="{{ route('users.edit', $user->id) }}" title="Edit"><i class="fa fa-edit"></i></a>
             <a href="#" class="btn btn-danger btn-delete-user"
-                data-url="{{ route('users.destroy', $user->id) }}">Delete</a>
+                data-url="{{ route('users.destroy', $user->id) }}" title="Delete"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
 @endforeach
@@ -31,7 +31,6 @@
                 $('#m-message').append('<div class="alert alert-success">Delete Successfully!</div>');
                 $('#view').empty();
                 $('#view').load("{{ route('users.index') }}");
-                window.location = $(this).attr('data-url');
             },
             error: function(data) {
                 alert(data);
