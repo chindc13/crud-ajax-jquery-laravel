@@ -13,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data['users']      = Users::all();
+        $data['count_user']      = Users::count();
 
         return view('users.index', $data);
     }
@@ -121,5 +121,10 @@ class UsersController extends Controller
         $user->delete();
 
         return 'success';
+    }
+
+    public function getTable(){
+        $data['users']      = Users::paginate(10);
+        return view('users.tables', $data);
     }
 }

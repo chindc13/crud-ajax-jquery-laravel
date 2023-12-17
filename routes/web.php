@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/users', UsersController::class);
+Route::get('/users/tables/load', [UsersController::class, 'getTable'])->name('users.fl');

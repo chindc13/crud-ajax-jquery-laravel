@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <div id="m-message"></div>
-        <div id="view" class="mt-5"></div>
+    <div class="container mt-5">
+        <div id="m-message mt-2"></div>
+        <div id="view" class="mt-2"></div>
     </div>
     
     @include('layouts.modal')
