@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CallsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,6 @@ Route::get('/', function () {
 
 Route::resource('/users', UsersController::class);
 Route::get('/users/tables/load', [UsersController::class, 'getTable'])->name('users.fl');
+
+Route::resource('/report/calls', CallsController::class);
+Route::get('/calls/tables/load', [CallsController::class, 'getTable'])->name('calls.fl');

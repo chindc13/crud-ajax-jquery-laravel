@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-sm-12 col-lg-12 col-md-12">
-        <a href="#" class="btn btn-success" id="btn-user-create">Create User</a>
+        <a href="#" class="btn btn-primary" id="btn-user-create">Create User</a>
+        <a href="#" class="btn btn-success" id="reports-page">REPORT</a>
     </div>
 </div>
 @if ($count_user > 0)
@@ -30,7 +31,6 @@
             </tbody>
         </table>
     </div>
-    <div id="datatablelinks"></div>
 @else
     <h1>No Data Found</h1>
 @endif
@@ -38,6 +38,11 @@
 <script>
     $('.page-item').removeClass('active');
     $('#manage-table-body').load("{{ route('users.fl') }}");
+
+    $('#reports-page').on('click', function() {
+        $('#view').empty();
+        $('#view').load('{{ route("calls.index") }}');
+    });
 
     $('#btn-user-create').on('click', function() {
         $('#view').empty();

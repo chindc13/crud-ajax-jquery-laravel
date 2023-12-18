@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#view').load('{{ route("users.index") }}');
+            $('#view').load('{{ route("calls.index") }}');
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
